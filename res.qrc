@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Skin/down.png</file>
+        <file>Skin/gamepause.png</file>
+        <file>Skin/gamestart.png</file>
+        <file>Skin/gametag.png</file>
+        <file>Skin/left.png</file>
+        <file>Skin/right.png</file>
+        <file>Skin/snakeicon.png</file>
+        <file>Skin/up.png</file>
+        <file>Skin/snakehead.png</file>
+        <file>Skin/snakebody.png</file>
+        <file>Skin/food.png</file>
+    </qresource>
+</RCC>
