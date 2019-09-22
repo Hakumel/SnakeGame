@@ -1,2 +1,1 @@
-# 贪吃蛇游戏 QT库实现 #
-## QT 初作 ##
+## Snake Game by QT 
