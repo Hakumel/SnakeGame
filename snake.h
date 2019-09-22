@@ -6,10 +6,14 @@
 class Wall;
 struct SnakeNode;
 
-
-class Snake
-{
+class Snake {
 public:
+    ~Snake();
+    Snake(const Snake&) = delete;
+    Snake(Snake&&) = delete;
+    Snake& operator=(const Snake&) = delete;
+    Snake& operator=(Snake&&) = delete;
+
     static Snake* getdata();
     QList<SnakeNode*> getlistdata();
     void initial();
@@ -25,9 +29,10 @@ private:
     void deltailnode();
     void destoryPoint();
     void changeGameInfo();
+
 private:
     Snake(Wall* w=nullptr);
-
+    static void initial_data_once();
     QList<SnakeNode*> m_NodeList;
     SnakeNode* m_phead;
     Wall* m_pWall;
@@ -37,21 +42,17 @@ private:
 	static unsigned m_count;
     static unsigned m_level;
 
-
-    class rememberfree
-    {
+    class RememberFree {     //RAII
     public:
-        ~rememberfree()
-        {
-            if (Snake::m_data)
-            {
+        ~RememberFree(){
+            if (Snake::m_data){
                 delete m_data;
             }
         }
     };
-    static rememberfree m_free;
-    static std::mutex mtx;
-    static rememberfree rember;
+
+    static std::once_flag m_flag_snake;
+    static RememberFree m_free;
 };
 
 #endif // !SNAKE_H
